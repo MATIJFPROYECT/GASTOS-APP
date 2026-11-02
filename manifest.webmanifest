@@ -1,0 +1,19 @@
+{
+  "id": "/GASTOS-APP/",
+  "name": "A cuenta · Mis gastos",
+  "short_name": "A cuenta",
+  "lang": "es",
+  "start_url": "/GASTOS-APP/",
+  "scope": "/GASTOS-APP/",
+  "display": "standalone",
+  "theme_color": "#37624B",
+  "background_color": "#F7F8F2",
+  "icons": [
+    {
+      "src": "/GASTOS-APP/apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
