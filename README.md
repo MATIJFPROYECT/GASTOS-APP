@@ -65,3 +65,18 @@ Los archivos con datos dañados o formatos desconocidos provocan un aviso de lec
 - `tests/`: pruebas de lógica y de navegador.
 
 Cada tarea en la nube ya está aislada. Trabaja en el checkout existente; no es necesario crear un Git worktree.
+
+## Publicación web para iPhone
+
+```sh
+EXPO_OFFLINE=1 npm run build:pages
+node scripts/check-web.mjs
+```
+
+`build:pages` prepara `dist/` para la subruta `/GASTOS-APP/` de GitHub Pages. Incluye el icono, el manifiesto y los metadatos para añadir la web a la pantalla de inicio de iPhone. `check-web.mjs` sirve temporalmente esa exportación y verifica los recursos, el registro de un gasto, la navegación y la persistencia al recargar una ruta interna.
+
+El contenido de `dist/` se publica en la raíz de la rama `gh-pages` del repositorio. En **Settings → Pages**, el origen debe ser **Deploy from a branch → gh-pages → / (root)**. La dirección prevista es `https://matijfproyect.github.io/GASTOS-APP/`; no está disponible hasta que GitHub Pages esté activado y su despliegue termine.
+
+En el iPhone, abre la dirección publicada en Safari y usa **Compartir → Añadir a pantalla de inicio**. El almacenamiento sigue siendo local y esta versión necesita conexión para cargar la web; no incluye caché de uso sin conexión.
+
+Para otro alojamiento que sirva desde la raíz del dominio, usa `npm run build:web` sin `WEB_BASE_PATH`. Mantén estable el dominio: cambiarlo no traslada automáticamente los datos del navegador.
